@@ -18,4 +18,4 @@ pokemonList = [
         type: ['Water'],
         weakness: ['Grass', 'Electric']
     }
-]
+];
