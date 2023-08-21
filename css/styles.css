@@ -1,0 +1,27 @@
+body {
+    background-color: #a4daa4;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    /* Sets the font size to 16px */
+    line-height: 1.6;
+    /* Sets the line-height to 1.6 */
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pokedexlist {
+    text-align: center;
+}
