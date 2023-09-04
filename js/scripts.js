@@ -1,5 +1,6 @@
-let pokemonList = [
-    {
+let pokemonRepository =(function(){
+    let pokemonList= [
+        {
         name: 'Chikorita',
         height: .889,
         type: ['Grass'],
@@ -19,15 +20,28 @@ let pokemonList = [
     }
 ];
 
-for (let i=0; i<pokemonList.length; i++) {
-    if (pokemonList[i].height > 0.7){
-        document.write(
-            pokemonList[i].name + ' (Height:' + pokemonList[i].height +')' + '-That\'s a big pokemon!'
-        ); //Writes name and height of a pokemon that exceeds 0.7 in height and declares it a big pokemon
-    } else {
-        document.write(
-            pokemonList[i].name + ' (Height:' + pokemonList[i].height +')' 
-        ) //Writes just the name and height of a pokemon that does not exceed a height of 0.7
+
+function add(pokemon){
+    pokemonList.push(pokemon);
+};
+
+function getAll(){
+    return pokemonList;
+};
+    
+return{
+        add: add,
+        getAll: getAll
+    };
+})();
+
+pokemonRepository.getAll().forEach(function (pokemon){
+    if(pokemon.height > 0.7){
+        document.write(pokemon.name + ' Height: '+ pokemon.height + ' That\'s a big pokemon!');
+    }else{
+        document.write(pokemon.name + ' Height: '+ pokemon.height );
     }
     document.write('<br> <br>')
-}
+});
+
+
