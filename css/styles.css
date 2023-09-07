@@ -25,3 +25,21 @@ h3 {
 .pokedexlist {
     text-align: center;
 }
+
+.button {
+    border: none;
+    display: block;
+    width: 15%;
+    margin: 0 auto;
+    text-align: center;
+    /* takes the outer container font */
+    font-family: inherit;
+    /* styles the button*/
+    background-color: #A9145E;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 3px;
+    /* width of border, type, and color */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
