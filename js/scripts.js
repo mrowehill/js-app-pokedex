@@ -26,10 +26,14 @@ function addListItem(pokemon){
     //add li and button elements
     let listItem=document.createElement('li');
     let button=document.createElement('button');
+    listItem.classList.add("list-group-item");
 
     //add pokemon innertext to button
     button.innerText = pokemon.name;
     button.classList.add('button');
+    button.classList.add("btn", "btn-primary", "btn-lg");
+    button.setAttribute('data-target', '#exampleModal');
+    button.setAttribute('data-toggle', 'modal');
 
     //appending the button and listitem
     listItem.appendChild(button);
@@ -77,53 +81,23 @@ function loadDetails(item){
 }
 
 function showModal(pokemon){
-    let modalContainer=document.querySelector('#modal-container');
-    
-    //clear all existing modal content
-    modalContainer.innerHTML = '';
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
+    let modalHeader = $('.modal-header');
 
-    //adding new modal content
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('.modal-close');
-    closeButtonElement.innerText = 'Close';
+    modalTitle.empty();
+    modalBody.empty();
 
-    //adding pokemon info
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = pokemon.name;
+    let nameElement = $('<h1>' + pokemon.name +'</h1>');
+    let imageElement = $('<img class="modal-img">');
+        imageElement.attr('src', pokemon.imgUrl);
+    let heightElement = $('<p>' + 'height : ' + pokemon.height + '<p>');
+    let weightElement = $('<p>' + 'weight : ' + pokemon.weight + '</p>');
 
-    let pokemonImg= document.createElement('img');
-    pokemonImg.classList.add('modal-img');
-    pokemonImg.src = pokemon.imgUrl;
-
-    let contentElement = document.createElement('p');
-    contentElement.innerText = 'Height:' + pokemon.height;
-
-    let weightElement = document.createElement ('p');
-    weightElement.innerText = 'Weight:' + pokemon.weight;
-
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(pokemonImg);
-    modal.appendChild(contentElement);
-    modal.appendChild(weightElement);
-    modalContainer.appendChild(modal);
-
-    modalContainer.classList.add('is-visible');
-
-    document.querySelector('#modal-container').addEventListener('click', () => {
-        showModal();
-    });
-
-    //This will be triggered if the user clicks on the overlay directly
-    modalContainer.addEventListener('click', (e) => {
-        let target = e.target;
-        if (target === modalContainer) {
-            hideModal();
-        }
-    });
-    
+    modalTitle.append(nameElement);
+    modalBody.append(imageElement);
+    modalBody.append(heightElement);
+    modalBody.append(weightElement);
 }
 
 function hideModal() {
