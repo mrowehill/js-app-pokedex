@@ -8,22 +8,35 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body>
-        <header class="header">
-            <h1>POKEDEX</h1>
-            <h3>A New Index of Various Pokemon</h3>
+        <header>
+            <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed"> 
+                <span class="navbar-brand" >Pokedex</span>
+                <span class="navbar-text">An Index of Various Pokemon</span>
+            </nav>
         </header>
-        <div>
-           <!-- <button id="show-modal">Show Modal</button> -->
-            <div id="modal-container">
-               <!-- <div class="modal">
-                    <button class="modal-close">Close</button>
-                    <h1>Modal Title</h1>
-                    <p>Modal Text</p>
-                </div> -->
+        <!--<div id="modal-container">
+        </div> -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Example Modal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="pokedexlist">
-            <ul class="pokemon-index"></ul>
+        </div> 
+        <div class="pokedexlist list-group">
+            <ul class="pokemon-index list-group"></ul>
             <script src="js/promise-polyfill.js"></script>
             <script src="js/fetch-polyfill.js"></script>
             <script src="js/scripts.js"></script>
